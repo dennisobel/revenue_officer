@@ -35,6 +35,7 @@ function LoginPage() {
           headerStyle: { backgroundColor: COLORS.lightWhite },
           headerShadowVisible: false,
           headerTitle: "",
+          headerBackVisible: false
         }}
       />
       <ScrollView showsVerticalScrollIndicator={false}>
