@@ -4,6 +4,7 @@ import styles from "./nearbyjobcard.style";
 import { checkImageURL } from "../../../../utils";
 
 const NearbyJobCard = ({ job, handleNavigate }) => {
+  console.log("IN CARD:",job)
   return (
     <TouchableOpacity style={styles.container} onPress={handleNavigate}>
       <TouchableOpacity style={styles.logoContainer}>
@@ -20,10 +21,10 @@ const NearbyJobCard = ({ job, handleNavigate }) => {
 
       <View style={styles.textContainer}>
         <Text style={styles.jobName} numberOfLines={1}>
-          {job?.job_title}
+          {job?.properties.buildingnumber}
         </Text>
 
-        <Text style={styles.jobType}>{job?.job_employment_type}</Text>
+        <Text style={styles.jobType}>{job?.properties.paymentstatus}</Text>
       </View>
     </TouchableOpacity>
   );

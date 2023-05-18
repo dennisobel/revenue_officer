@@ -10,17 +10,25 @@ import {
   Welcome,
 } from "../components";
 
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import globalReducer from "../state"
+
 const Home = () => {
   const router = useRouter()
   const [searchTerm, setSearchTerm] = useState("");
   const [toggle,setToggle] = useState(false)
 
+  const store = configureStore({
+    reducer: globalReducer
+  })
+
   const toggleDrawer = () => {
-    console.log("DRAWER TOGGLED")
     setToggle(!toggle)
   }
 
   return (
+    <Provider store={store}>
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
       <Stack.Screen
         options={{
@@ -60,6 +68,7 @@ const Home = () => {
         </View>
       </ScrollView>
     </SafeAreaView>
+    </Provider>
   );
 };
 

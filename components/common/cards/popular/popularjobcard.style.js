@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     marginTop: SIZES.large,
   },
   jobName: (selectedJob, item) => ({
-    fontSize: SIZES.large,
+    fontSize: SIZES.medium,
     fontFamily: FONT.medium,
     color: selectedJob === item.job_id ? COLORS.white : COLORS.primary,
   }),

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -11,12 +11,15 @@ import { useRouter } from "expo-router";
 
 import styles from "./welcome.style";
 import { icons, SIZES } from "../../../constants";
+import { useSelector,useDispatch } from "react-redux";
+import buildingsdata from "../../../state/buildingsdata"
+import { setBuildingsData } from "../../../state";
 
-const jobTypes = ["Paid", "Partially Paid", "Not Paid"];
+const jobTypes = ["paid", "partially paid", "not paid"];
 
 const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
   const router = useRouter();
-  const [activeJobType, setActiveJobType] = useState("Full-time");
+  const [activeJobType, setActiveJobType] = useState("");
 
   return (
     <View>

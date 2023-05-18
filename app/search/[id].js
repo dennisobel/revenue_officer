@@ -8,6 +8,7 @@ import res from '../../utils/data'
 import { ScreenHeaderBtn, NearbyJobCard } from '../../components'
 import { COLORS, icons, SIZES } from '../../constants'
 import styles from '../../styles/search'
+import buildingsdata from "../../utils/buildingsdata"
 
 const JobSearch = () => {
     const params = useSearchParams();
@@ -18,10 +19,20 @@ const JobSearch = () => {
     const [searchError, setSearchError] = useState(null);
     const [page, setPage] = useState(1);
 
+    console.log(params)
+
     const handleSearch = async () => {
         // setSearchLoader(true);
+        
         setSearchResult([])
-        setSearchResult(res.data)
+        // setSearchResult(res.data)
+        setSearchResult(
+            buildingsdata.features?.filter(
+                (item) => {
+                    return item.properties.ward === "Ward:highridge" && item.properties.paymentstatus === params.id
+                }
+            )
+        )
 
         // try {
         //     const options = {
@@ -60,7 +71,7 @@ const JobSearch = () => {
 
     useEffect(() => {
         handleSearch()
-    }, [])
+    }, [params])
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
@@ -81,10 +92,10 @@ const JobSearch = () => {
 
             <FlatList
                 data={searchResult}
-                renderItem={({ item }) => (
+                renderItem={({ item, index }) => (
                     <NearbyJobCard
                         job={item}
-                        handleNavigate={() => router.push(`/job-details/${item.job_id}`)}
+                        handleNavigate={() => router.push(`/job-details/${index}`)}
                     />
                 )}
                 keyExtractor={(item) => item.job_id}

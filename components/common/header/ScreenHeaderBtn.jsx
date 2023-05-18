@@ -20,8 +20,6 @@ const ScreenHeaderBtn = ({ iconUrl, dimension, handlePress }) => {
   // Access the current screen
   const currentScreen = navigationState.routes[navigationState.index].name;
 
-  console.log("CURRENT SCREEN:", currentScreen)
-
   // Use the current screen as needed
 
   const router = useRouter();

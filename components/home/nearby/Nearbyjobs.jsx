@@ -7,6 +7,7 @@ import { COLORS } from "../../../constants";
 import NearbyJobCard from "../../common/cards/nearby/NearbyJobCard";
 import useFetch from "../../../hook/useFetch";
 import res from "../../../utils/data"
+import buildingsdata from "../../../state/buildingsdata"
 
 const Nearbyjobs = () => {
   const router = useRouter();
@@ -24,29 +25,13 @@ const Nearbyjobs = () => {
         </TouchableOpacity>
       </View>
 
-      {/* <View style={styles.cardsContainer}>
-        {isLoading ? (
-          <ActivityIndicator size='large' color={COLORS.primary} />
-        ) : error ? (
-          <Text>Something went wrong</Text>
-        ) : (
-          data?.map((job) => (
-            <NearbyJobCard
-              job={job}
-              key={`nearby-job-${job.job_id}`}
-              handleNavigate={() => router.push(`/job-details/${job.job_id}`)}
-            />
-          ))
-        )}
-      </View> */}
-
-<View style={styles.cardsContainer}>
+      <View style={styles.cardsContainer}>
         {
-          res.data?.map((job) => (
+          buildingsdata.features?.filter((item) => item.properties.ward === "Ward:highridge").map((job,index) => (
             <NearbyJobCard
               job={job}
-              key={`nearby-job-${job.job_id}`}
-              handleNavigate={() => router.push(`/job-details/${job.job_id}`)}
+              key={`nearby-job-${index}`}
+              handleNavigate={() => router.push(`/job-details/${index}`)}
             />
           ))
         }

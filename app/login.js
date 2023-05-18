@@ -9,7 +9,6 @@ import {
 import { Stack, useRouter } from "expo-router";
 
 import { COLORS, icons, images, SIZES } from "../constants";
-import { Login } from "../components/login/login";
 import styles from "../components/login/login.style";
 import { ScreenHeaderBtn } from "../components";
 import { useState } from "react";

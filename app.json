@@ -1,10 +1,27 @@
 {
   "expo": {
+    "plugins": [
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsImpl": "mapbox",
+          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoiZGVubmlzb2JlbCIsImEiOiJjbGhybmY4dXcwMG12M2RuenhjaXkxdzFxIn0._rEQDrXn7ibjZZaTXudmXQ"
+        }
+      ]
+    ],
     "scheme": "acme",
     "web": {
       "bundler": "metro"
     },
     "name": "revenue_officer_app",
-    "slug": "revenue_officer_app"
+    "slug": "revenue_officer_app",
+    "extra": {
+      "eas": {
+        "projectId": "176d1cea-6fc6-4cae-a2b1-8231d1d4f754"
+      }
+    },
+    "android": {
+      "package": "com.dennisobel.revenue_officer_app"
+    }
   }
 }
