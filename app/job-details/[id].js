@@ -38,7 +38,7 @@ const JobDetails = () => {
   const [details, setDetails] = useState();
 
   useEffect(() => {
-    setDetails(buildingsdata.features[params.id].properties);
+    setDetails(buildingsdata?.features[params.id]?.properties);
   }, [params]);
 
   useEffect(() => {

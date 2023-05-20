@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
 
 const Map = ({details}) => {
     const [location, setLocation] = useState({
-        latitude: details.latitude,
-        longitude: details.longitude,
+        latitude: details?.latitude,
+        longitude: details?.longitude,
     });
     
   useEffect(() => {
